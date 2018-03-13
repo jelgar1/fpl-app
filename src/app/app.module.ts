@@ -1,7 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-
 import { AppComponent } from './app.component';
 import { DetailsComponent } from './details/details.component';
 import { AppRoutingModule } from './/app-routing.module';
@@ -10,6 +8,8 @@ import { TeamDetailsComponent } from './team-details/team-details.component';
 import { TeamService } from './services/team.service';
 import { MessagesComponent } from './messages/messages.component';
 import { MessageService } from './services/message.service';
+import { ApiService } from './services/api.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -22,9 +22,10 @@ import { MessageService } from './services/message.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [TeamService, MessageService],
+  providers: [ApiService, TeamService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
