@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TEAMS } from '../mock-teams';
 import { PlayerService } from '../services/player.service';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-details',
@@ -9,15 +10,16 @@ import { PlayerService } from '../services/player.service';
 })
 export class DetailsComponent implements OnInit {
 
-  constructor(private playerService: PlayerService) { }
+  constructor(private playerService: PlayerService,
+              private apiService: ApiService) { }
   teams = TEAMS;
-  players: any
+  players: any;
   ngOnInit() {
     this.getDetails();
   }
 
   getDetails(): void {
-    this.playerService.getAllPlayers()
+    this.apiService.getMainUrl()
       .subscribe(data => console.log(data));
   }
 }

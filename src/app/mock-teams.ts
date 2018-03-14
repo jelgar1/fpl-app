@@ -1,6 +1,4 @@
-import {Team} from './models/team';
-
-export const TEAMS: Team[] = [
+export const TEAMS: Array<object> = [
   {id: 1, name: 'Dyslexia Untied', owner: 'Larry Griffiths', playerIds: [462, 35, 461, 15, 105, 132, 490, 451, 259, 371]},
   {id: 2, name: 'Mumford & Son', owner: 'Adam Davey', playerIds: [311, 167, 382, 234, 282, 390, 232, 278, 26, 187]},
   {id: 3, name: 'Klaasen is Permanent', owner: 'Ludo Goodliffe', playerIds: [357, 244, 377, 106, 108, 89, 365, 253, 487, 25]},
