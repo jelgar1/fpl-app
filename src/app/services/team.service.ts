@@ -4,12 +4,12 @@ import { TEAMS } from '../mock-teams';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { MessageService } from './message.service';
-import { catchError, map, tap } from 'rxjs/operators';
-
 
 @Injectable()
 export class TeamService {
-  constructor(private messageService: MessageService) { }
+  constructor(private messageService: MessageService
+  ) { }
+
   getTeams(): Observable<Team[]> {
     this.messageService.add('TeamService: fetched teams');
     return of(TEAMS);
@@ -19,4 +19,5 @@ export class TeamService {
     this.messageService.add(`TeamService: fetched team id=${id}`);
     return of(TEAMS.find(team => team.id === id));
   }
+
 }

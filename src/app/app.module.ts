@@ -10,6 +10,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { MessageService } from './services/message.service';
 import { ApiService } from './services/api.service';
 import { HttpClientModule } from '@angular/common/http';
+import { PlayerService } from './services/player.service';
 
 
 @NgModule({
@@ -25,7 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [ApiService, TeamService, MessageService],
+  providers: [ApiService, TeamService, MessageService, PlayerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

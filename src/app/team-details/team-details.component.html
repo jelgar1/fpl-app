@@ -1,5 +1,16 @@
 <button (click)="goBack()">go back</button>
-
-
 <h2>{{ team.name | uppercase }}</h2>
 <div><span>{{team.owner}}</span></div>
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>Player</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let player of team.players">
+    <td>{{player.web_name}}</td>
+    <td *ngFor="let gameweek of player.history">{{gameweek.goals_scored}}</td>
+  </tr>
+  </tbody>
+</table>

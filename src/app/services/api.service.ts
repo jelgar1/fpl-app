@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { MessageService } from './message.service';
 import { Observable } from 'rxjs/Observable';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 import { of } from 'rxjs/observable/of';
 
 
@@ -15,8 +15,10 @@ export class ApiService {
 
   private corsUrl = 'https://cors-anywhere.herokuapp.com/';
   private mainUrl = 'https://fantasy.premierleague.com/drf/bootstrap-static';
+  private playerUrl = 'https://fantasy.premierleague.com/drf/element-summary/';
 
-  private log(message: string) {
+
+    private log(message: string) {
     this.messageService.add('APIService: ' + message);
   }
 
@@ -25,6 +27,14 @@ export class ApiService {
       .pipe(
         tap(details => this.log(`fetched details`)),
         catchError(this.handleError('getMainUrl', []))
+      );
+  }
+
+  getPlayerUrl(id: number): Observable<object> {
+    return this.http.get<object>(this.corsUrl + this.playerUrl + id)
+      .pipe(
+        tap(details => this.log(`fetched player`)),
+        catchError(this.handleError('getPlayerUrl', []))
       );
   }
 
@@ -43,19 +53,3 @@ export class ApiService {
   }
 }
 
-// @Injectable()
-// export class ApiService {
-//   constructor(@Inject(Http) public http: Http) {
-//   }
-//   teamUrl(): string {
-//     return 'https://fantasy.premierleague.com/drf/bootstrap-static';
-//   }
-//   playerUrl(): string {
-//     return 'https://fantasy.premierleague.com/drf/element-summary/';
-//   }
-//   get(url: string, playerId: number = null): Observable<Object> {
-//     let id: string = playerId ? playerId.toString() : '';
-//     return this.http.get(
-//       'https://cors-anywhere.herokuapp.com/' + url + id)
-//       .map(response => response.json());
-//   }
