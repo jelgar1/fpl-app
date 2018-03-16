@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TEAMS } from '../mock-teams';
 import { PlayerService } from '../services/player.service';
 import { ApiService } from '../services/api.service';
+import { GameweekService } from '../services/gameweek.service';
 
 @Component({
   selector: 'app-details',
@@ -11,7 +12,8 @@ import { ApiService } from '../services/api.service';
 export class DetailsComponent implements OnInit {
 
   constructor(private playerService: PlayerService,
-              private apiService: ApiService) { }
+              private apiService: ApiService,
+              private gameWeekService: GameweekService) { }
   teams = TEAMS;
   players: any;
   ngOnInit() {
@@ -19,7 +21,6 @@ export class DetailsComponent implements OnInit {
   }
 
   getDetails(): void {
-    this.apiService.getMainUrl()
-      .subscribe(data => console.log(data));
+    console.log(this.gameWeekService.buildGameweeks());
   }
 }

@@ -17,4 +17,10 @@ export class GameweekService {
       .map((details: any) => details.events
         .map((gameweek: any) => Gameweek.fromJSON(gameweek)));
   }
+
+  buildGameweeks(): void {
+    this.getAllGameweeks().subscribe((gameweeks) => {
+      console.log(gameweeks);
+    });
+  }
 }

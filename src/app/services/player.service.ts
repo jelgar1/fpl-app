@@ -4,12 +4,15 @@ import { Observable } from 'rxjs/Observable';
 import { Player } from '../models/player';
 import { ApiService } from './api.service';
 import 'rxjs/add/operator/map';
+import { Team } from '../models/team';
+import { TeamService } from './team.service';
 
 
 @Injectable()
 export class PlayerService {
   constructor(private messageService: MessageService,
-              private apiService: ApiService) { }
+              private apiService: ApiService,
+              private teamService: TeamService) { }
 
   getAllPlayers(): Observable<Array<Player>> {
     this.messageService.add('PlayerService: fetched players');

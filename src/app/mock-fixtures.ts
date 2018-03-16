@@ -74,4 +74,19 @@ export const FIXTURES: Array<object> = [
         {id: 10, team_a: 10, team_b: 15}
       ]
   },
+  {
+    gameweek: 31, fixtures:
+      [
+        {id: 1, team_a: 20, team_b: 17},
+        {id: 2, team_a: 11, team_b: 4},
+        {id: 3, team_a: 2, team_b: 1},
+        {id: 4, team_a: 15, team_b: 8},
+        {id: 5, team_a: 19, team_b: 9},
+        {id: 6, team_a: 5, team_b: 14},
+        {id: 7, team_a: 16, team_b: 3},
+        {id: 8, team_a: 6, team_b: 7},
+        {id: 9, team_a: 18, team_b: 12},
+        {id: 10, team_a: 10, team_b: 13}
+      ]
+  },
 ];

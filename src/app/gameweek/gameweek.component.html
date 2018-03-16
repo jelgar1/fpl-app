@@ -1,2 +1,18 @@
 <h1>{{gameweek.name}}</h1>
-<p *ngFor="let fixture of gameweek.fixtures">{{fixture.team_a.name}} v {{fixture.team_b.name}}</p>
+<div *ngFor="let fixture of gameweek.fixtures">
+  {{fixture.team_a.name}} {{calculateScore(fixture.team_a)}} v {{calculateScore(fixture.team_b)}} {{fixture.team_b.name}}
+  <table class="table table-bordered">
+    <tbody>
+    <tr *ngFor="let player of fixture.team_a.players">
+      <div *ngIf="player.history['goals_scored'] > 0">
+        <td>{{player.web_name}} - {{player.history.goals_scored}}</td>
+      </div>
+    </tr>
+    <tr *ngFor="let player of fixture.team_b.players">
+      <div *ngIf="player.history['goals_scored'] > 0">
+        <td>{{player.web_name}} - {{player.history.goals_scored}}</td>
+      </div>
+    </tr>
+    </tbody>
+  </table>
+</div>

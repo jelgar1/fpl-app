@@ -8,6 +8,8 @@ export class Fixture {
   id: number;
   team_a: Team;
   team_b: Team;
+  team_a_score: number;
+  team_b_score: number;
 
   static fromJSON(obj: any): Gameweek {
     const gw =  Object.assign(Object.create(Gameweek.prototype), obj, {});
